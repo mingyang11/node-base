@@ -4,7 +4,9 @@
   "description": "A simple JavaScript utility library",
   "main": "utils.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node index.js",
+    "predev": "node pre.js",
+    "postdev": "node post.js"
   },
   "keywords": [],
   "author": "fuyao",
