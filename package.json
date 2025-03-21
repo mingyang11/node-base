@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "A simple JavaScript utility library",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "node index.js"
   },
   "keywords": [],
   "author": "fuyao",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^26.0.0"
+  }
 }
