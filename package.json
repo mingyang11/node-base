@@ -1,5 +1,5 @@
 {
-  "name": "my-utils-library",
+  "name": "@node/1.0.0",
   "version": "1.0.0",
   "description": "A simple JavaScript utility library",
   "main": "utils.js",
