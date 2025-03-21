@@ -2,11 +2,10 @@
   "name": "@node/1.0.0",
   "version": "1.0.0",
   "description": "A simple JavaScript utility library",
-  "main": "utils.js",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "node index.js",
-    "predev": "node pre.js",
-    "postdev": "node post.js"
+    "dev": "node index.js"
   },
   "keywords": [],
   "author": "fuyao",
