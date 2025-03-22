@@ -1,36 +1,24 @@
-const { exec } = require('node:child_process');
-const os = require('node:os');
+// 获取cpu架构和系统，和os的一样
+console.log(process.arch);
+console.log(process.platform);
 
-// plateform: 获取操作平台
-console.log(os.platform());
+// argv：获取命令的参数
+console.log(
+  process.argv,
+  process.argv.includes('--version') ? '--version' : '无'
+);
 
-// release: 获取操作系统版本号
-console.log(os.release());
+// cwd: 获取工作目录，和__dirname一样，但是在esm模式下是不能使用__dirname的，这时候就需要用cwd来代替
+console.log(process.cwd(), __dirname);
 
-// version： 操作系统版本
-console.log(os.version());
+// 获取内存信息
+// console.log(process.memoryUsage());
 
-const open = (url) => {
-  const plateform = os.platform();
-  if (plateform === 'darwin') {
-    exec(`open ${url}`);
-  } else if (plateform === 'win32') {
-    exec(`start ${url}`);
-  } else if (plateform === 'linux') {
-    exec(`xdg-open ${url}`);
-  }
-};
+// exit: 退出进程
+// process.exit();
 
-// open('http://www.baidu.com');
+// env：环境变量，获取操作系统所有的环境变量
+// console.log(process.env);
 
-// homedir: 读取当前目录
-console.log(os.homedir());
-
-// arch: cpu架构
-console.log(os.arch());
-
-// cpus: 操作系统线程cpu信息
-// console.log(os.cpus());
-
-// 获取网络信息
-console.log(os.networkInterfaces());
+// cross-env：设置对应的环境变量，是一个跨平台的，不同操作系统都可以使用
+console.log(process.env.NODE_ENV);

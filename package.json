@@ -5,12 +5,14 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "dev": "node index.js"
+    "dev": "cross-env NODE_ENV=dev node index.js",
+    "build": "cross-env NODE_ENV=pro node index.js"
   },
   "keywords": [],
   "author": "fuyao",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "jsdom": "^26.0.0"
   }
 }
