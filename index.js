@@ -1,24 +1,34 @@
-// 获取cpu架构和系统，和os的一样
-console.log(process.arch);
-console.log(process.platform);
+const { execFile } = require('node:child_process');
+const path = require('node:path');
+// 1. exec：异步的方法，回调函数，返回buffer，可以执行命令或与软件进行交互
+// 2. execSync：同步的方法
 
-// argv：获取命令的参数
-console.log(
-  process.argv,
-  process.argv.includes('--version') ? '--version' : '无'
-);
+// exec('node -v', (err, stdout, stderr) => {
+//   // stdout是一个buffer，需要转化
+//   console.log(stdout.toString());
+// });
 
-// cwd: 获取工作目录，和__dirname一样，但是在esm模式下是不能使用__dirname的，这时候就需要用cwd来代替
-console.log(process.cwd(), __dirname);
+// 同步执行命令
+// console.log(execSync('node -v').toString());
 
-// 获取内存信息
-// console.log(process.memoryUsage());
+// 与电脑软件进行交互，比如打开我电脑上的抖音，一般mac的安装位置都在Applications下面，后面就直接跟应用程序名称
+// execSync('open "/Applications/抖音.app"');
 
-// exit: 退出进程
-// process.exit();
+// 3.spawn: 返回没有字节上线，返回是流数据，且是实时返回
+// 4.spawnSync: 这个用的少
+// const { stdout } = spawn('netstat');
 
-// env：环境变量，获取操作系统所有的环境变量
-// console.log(process.env);
+// stdout.on('data', (msg) => {
+//   console.log(msg.toString());
+// });
 
-// cross-env：设置对应的环境变量，是一个跨平台的，不同操作系统都可以使用
-console.log(process.env.NODE_ENV);
+// stdout.on('close', () => {
+//   console.log('结束');
+// });
+
+// execFile: 执行可执行文件
+execFile(path.resolve(__dirname, './bat.cmd'), null, (err, stdout) => {
+  console.log(err);
+
+  console.log(stdout.toString());
+});
