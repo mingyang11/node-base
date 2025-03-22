@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A simple JavaScript utility library",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev node index.js",
     "build": "cross-env NODE_ENV=pro node index.js"
